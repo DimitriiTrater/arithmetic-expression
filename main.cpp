@@ -4,6 +4,7 @@
 
 int main()
 {
-    std::cout<<expression("2+2*2")<<std::endl;
+    std::string ex = "(2+2)*5";
+    std::cout<<expression(ex)<<std::endl;
     return 0;
 }

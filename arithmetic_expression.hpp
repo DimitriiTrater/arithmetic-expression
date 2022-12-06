@@ -67,11 +67,42 @@ double additionAndSubtraction(std::string &expression)
 }
 
 
+
+bool checkSign(std::string &expression)
+{
+    if (expression[0] == '+')
+        return false;
+    
+    if (expression[0] == '-')
+        return false;
+
+    if (expression[0] == '*')
+        return false;
+    
+    if (expression[0] == '/')
+        return false;
+
+    if (expression[0] == '\0')
+        return false;
+    
+    if (expression[0] == ')')
+        return false;
+
+    if (expression[0] == '(')
+        return false;
+
+    return true;
+}
+
+
+
+
 double prefixAndBracket(std::string &expression)
 {
     while(isspace(expression[0]))
         expression.erase(0, 1);
 
+    double a = strtod(expression.c_str(), NULL);
     char l = expression[0];    
     switch(expression[0])
     {
@@ -86,8 +117,9 @@ double prefixAndBracket(std::string &expression)
         case '8':
         case '9':
             expression.erase(0, 1);
-            return (l-'0');
-        
+            while (checkSign(expression))
+                expression.erase(0, 1);
+            return a;
         case '-':
             expression.erase(0, 1);
             return -prefixAndBracket(expression);

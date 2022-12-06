@@ -4,7 +4,7 @@
 
 int main()
 {
-    std::string ex = "(2+2)*5";
+    std::string ex = "((2+10)*15)/180(234)";
     std::cout<<expression(ex)<<std::endl;
     return 0;
 }

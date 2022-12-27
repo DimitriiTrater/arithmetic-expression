@@ -102,8 +102,7 @@ double prefixAndBracket(std::string &expression)
     while(isspace(expression[0]))
         expression.erase(0, 1);
 
-    double a = strtod(expression.c_str(), NULL);
-    char l = expression[0];    
+    double a = strtod(expression.c_str(), NULL);   
     switch(expression[0])
     {
         case '0':
